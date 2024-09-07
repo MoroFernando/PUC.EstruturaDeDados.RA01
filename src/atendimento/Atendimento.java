@@ -1,3 +1,7 @@
+package atendimento;
+
+import cliente.Cliente;
+
 public class Atendimento {
   private String id;
   private Cliente cliente;

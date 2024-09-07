@@ -1,17 +1,29 @@
+package atendimento;
+
+import historico.PilhaDeHistoricos;
+
 public class FilaDeAtendimentos {
+  private static FilaDeAtendimentos fila;
   private NodeFila primeiro;
 
-  public FilaDeAtendimentos() {
+  private FilaDeAtendimentos() {
     primeiro = null;
+  }
+
+  public static FilaDeAtendimentos getFila() {
+    if(fila == null) {
+      fila = new FilaDeAtendimentos();
+    }
+
+    return fila;
   }
 
   public boolean vazia() {
     return this.primeiro == null;
   }
 
-  public void adicionar(String id, Cliente cliente, String motivo) {
-    Atendimento novoAtendimeto = new Atendimento(id, cliente, motivo);
-    NodeFila novoNode = new NodeFila(novoAtendimeto);
+  public void adicionar(Atendimento atendimento) {
+    NodeFila novoNode = new NodeFila(atendimento);
     
 
     if(vazia()){
@@ -51,11 +63,12 @@ public class FilaDeAtendimentos {
       return;
     }
 
+    Atendimento atendimento = this.primeiro.getAtendimento();
+
     System.out.print("ATENDENDO");
     imprimeAtendimento();
 
+    PilhaDeHistoricos.getHistorico().adicionar(atendimento);
     this.primeiro = this.primeiro.getAnterior();
-
-    // ? IMPLEMENTAR SALVAR NO HISTORICO
   }
 }

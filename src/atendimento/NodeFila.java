@@ -1,3 +1,5 @@
+package atendimento;
+
 public class NodeFila {
   private Atendimento atendimento;
   private NodeFila proximo;
