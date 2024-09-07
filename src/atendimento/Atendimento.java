@@ -1,14 +1,15 @@
 package atendimento;
 
 import cliente.Cliente;
+import utilitarios.Id;
 
 public class Atendimento {
   private String id;
   private Cliente cliente;
   private String motivo; 
 
-  public Atendimento(String id, Cliente cliente, String motivo) {
-    this.id = id;
+  public Atendimento(Cliente cliente, String motivo) {
+    this.id = "AT-" + Id.gerar();
     this.cliente = cliente;
     this.motivo = motivo;
   }

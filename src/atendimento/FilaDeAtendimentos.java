@@ -39,22 +39,22 @@ public class FilaDeAtendimentos {
     atual.setAnterior(novoNode);
   }
 
-  public void imprimeFila(){
+  public void imprime(){
+    System.out.println("\n######## FILA DE ATENDIMENTOS #######");
     if (vazia()) {
-      System.out.println("FILA VAZIA");
-      return;
+      System.out.println("* FILA VAZIA *");
+    } else {
+      NodeFila atual = this.primeiro;
+      while(atual != null) {
+        System.out.println("-> " + atual.getAtendimento().getId() + ", " + atual.getAtendimento().getCliente().getNome() + ", " + atual.getAtendimento().getMotivo());
+        atual = atual.getAnterior();
+      }
     }
-
-    NodeFila atual = this.primeiro;
-    while(atual != null) {
-      System.out.println("-> " + atual.getAtendimento().getId() + " " + atual.getAtendimento().getCliente().getNome() + " " + atual.getAtendimento().getMotivo());
-      atual = atual.getAnterior();
-    }
-
+    System.out.println("#####################################");
   }
 
   public void imprimeAtendimento(){
-    System.out.println("-> " + this.primeiro.getAtendimento().getId() + " " + this.primeiro.getAtendimento().getCliente().getNome() + " " + this.primeiro.getAtendimento().getMotivo());
+    System.out.println("-> " + this.primeiro.getAtendimento().getId() + ", " + this.primeiro.getAtendimento().getCliente().getNome() + ", " + this.primeiro.getAtendimento().getMotivo());
   }
 
   public void atende(){

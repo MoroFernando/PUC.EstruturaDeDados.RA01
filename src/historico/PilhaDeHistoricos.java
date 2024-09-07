@@ -40,17 +40,17 @@ public class PilhaDeHistoricos {
   }
 
   public void imprime() {
+    System.out.println("\n############# HISTORICO #############");
     if (vazia()) {
-      System.out.println("HISTÓRICO VAZIO");
-      return;
+      System.out.println("* HISTÓRICO VAZIO *");
+    } else {
+      NodeHistorico atual = this.topo;
+      while (atual != null) {
+        System.out.println("HISTÓRICO-> " + atual.getHistorico().getId() + ", " + atual.getHistorico().getAtendimento().getCliente().getNome() + ", " + atual.getHistorico().getAtendimento().getMotivo() + " " + atual.getHistorico().getData());
+        atual = atual.getProximo();
+      }
     }
-
-    NodeHistorico atual = this.topo;
-    while (atual != null) {
-      System.out.println("HISTÓRICO-> " + atual.getHistorico().getId() + " " + atual.getHistorico().getAtendimento().getCliente().getNome() + " " + atual.getHistorico().getAtendimento().getMotivo() + " " + atual.getHistorico().getData());
-      atual = atual.getProximo();
-    }
-
+    System.out.println("#####################################");
     return;
   }
 }
