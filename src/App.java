@@ -30,5 +30,6 @@ public class App {
       fila.atende();
 
       historico.imprime();
+      historico.remover();
     }
 }

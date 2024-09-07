@@ -30,6 +30,15 @@ public class PilhaDeHistoricos {
     this.topo = novoNode;
   }
 
+  public void remover() {
+    if (vazia()) {
+      System.out.println("HISTÓRICO VAZIO");
+      return;
+    }
+
+    this.topo = this.topo.getProximo();
+  }
+
   public void imprime() {
     if (vazia()) {
       System.out.println("HISTÓRICO VAZIO");
@@ -38,7 +47,7 @@ public class PilhaDeHistoricos {
 
     NodeHistorico atual = this.topo;
     while (atual != null) {
-      System.out.println("-> " + atual.getHistorico().getId() + " " + atual.getHistorico().getAtendimento().getCliente().getNome() + " " + atual.getHistorico().getAtendimento().getMotivo() + " " + atual.getHistorico().getData());
+      System.out.println("HISTÓRICO-> " + atual.getHistorico().getId() + " " + atual.getHistorico().getAtendimento().getCliente().getNome() + " " + atual.getHistorico().getAtendimento().getMotivo() + " " + atual.getHistorico().getData());
       atual = atual.getProximo();
     }
 
