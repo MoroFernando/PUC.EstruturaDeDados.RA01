@@ -1,9 +1,9 @@
-public class Node {
+public class NodeFila {
   private Atendimento atendimento;
-  private Node proximo;
-  private Node anterior;
+  private NodeFila proximo;
+  private NodeFila anterior;
 
-  public Node(Atendimento atendimento) {
+  public NodeFila(Atendimento atendimento) {
     this.atendimento = atendimento;
     this.proximo = null;
     this.anterior = null;
@@ -17,19 +17,19 @@ public class Node {
     return this.atendimento;
   }
 
-  public void setProximo(Node proximo) {
+  public void setProximo(NodeFila proximo) {
     this.proximo = proximo;
   }
 
-  public Node getProximo() {
+  public NodeFila getProximo() {
     return this.proximo;
   }
 
-  public void setAnterior(Node anterior) {
+  public void setAnterior(NodeFila anterior) {
     this.anterior = anterior;
   }
 
-  public Node getAnterior() {
+  public NodeFila getAnterior() {
     return this.anterior;
   } 
 }

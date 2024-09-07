@@ -1,5 +1,5 @@
 public class FilaDeAtendimentos {
-  private Node primeiro;
+  private NodeFila primeiro;
 
   public FilaDeAtendimentos() {
     primeiro = null;
@@ -11,7 +11,7 @@ public class FilaDeAtendimentos {
 
   public void adicionar(String id, Cliente cliente, String motivo) {
     Atendimento novoAtendimeto = new Atendimento(id, cliente, motivo);
-    Node novoNode = new Node(novoAtendimeto);
+    NodeFila novoNode = new NodeFila(novoAtendimeto);
     
 
     if(vazia()){
@@ -19,7 +19,7 @@ public class FilaDeAtendimentos {
       return;
     } 
 
-    Node atual = this.primeiro;
+    NodeFila atual = this.primeiro;
     while(atual.getAnterior() != null) {
       atual = atual.getAnterior();
     }
@@ -33,7 +33,7 @@ public class FilaDeAtendimentos {
       return;
     }
 
-    Node atual = this.primeiro;
+    NodeFila atual = this.primeiro;
     while(atual != null) {
       System.out.println("-> " + atual.getAtendimento().getId() + " " + atual.getAtendimento().getCliente().getNome() + " " + atual.getAtendimento().getMotivo());
       atual = atual.getAnterior();
